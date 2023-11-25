@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from cadastro.forms import CadastroUsuarioForm
+from cadastro.models import CadastroUsuario
 
 def cadastro_usuario(request):
     sucesso = False

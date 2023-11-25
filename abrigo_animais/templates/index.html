@@ -1,12 +1,12 @@
 {% load static %}
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="auto">
   <head>
-    <!--Meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <title>Abrigo de Animais</title>
 
@@ -25,7 +25,7 @@
 
   <body>
 
-    <nav class="navbar col-12 position-fixed navbar-expand-lg navbar-dark bg-dark" style="z-index: 999;">
+    <nav class="navbar col-12 position-fixed navbar-expand-lg navbar-dark bg-dark" style="z-index: 999">
       <div class="container-fluid" col-11 m-auto>
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,11 +38,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'Abrigo_de_Animais' %}">Abrigo de Animais</a>
             </li>
-            <li class="nav-item">
-              {% for animal in animais %}
-              <a class="nav-link" href="{% url 'Card_de_Animais' animal.id %}">Animais</a>
-              {% endfor %}
-            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="{% url 'Adoção' %}">Adoção</a>
               {% if user.is_authenticated and user.pedidoadocao_set.all %}
@@ -86,11 +82,12 @@
   </body>
 </html>
 <br><br>
+
 {% block principal %}{% endblock %}
 
 <footer class="footer">
   <span class="footer__texto" title="Desenvolvedora">
     <strong>Feito pela</strong>
-      <img class="icone icone--texto" src="../static/imgs/programmer.svg" alt="Desenvolvedora">&copy; <strong> Gleiciane Silva</strong>
+      <img class="icone icone--texto" src="../static/imgs/programmer.png" alt="Desenvolvedora">&copy; <strong> Gleiciane Silva</strong>
   </span>
 </footer>

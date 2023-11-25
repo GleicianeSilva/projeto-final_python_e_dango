@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from abrigo_animais.forms import PedidoAdocao
 from abrigo_animais.forms import PedidoAdocaoForm
 from animais.models import CadastroAnimal
@@ -9,7 +8,11 @@ def inicio(request):
     return render(request, "index.html")
 
 def pagina_inicial(request):
-    return render(request, "pagina_inicial.html")
+
+    animais = CadastroAnimal.objects.all()
+
+    return render(request, "pagina_inicial.html", {'animais': animais})
+
 
 def card_animais(request, id):
 

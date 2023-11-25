@@ -5,6 +5,12 @@
 
 <h1 class="form_cadastro"><strong>Cadastro de Usuário</strong></h1>
 
+{% if sucesso %}
+<div class="alert alert-success" role="alert">
+  <p>Cadastro enviado com sucesso.</p>
+</div>
+{% endif %}
+
 <form class="form_animal" action="" method="POST" id="form" enctype="multipart/form-data">
  
   {% csrf_token %}

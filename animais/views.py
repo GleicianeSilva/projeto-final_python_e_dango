@@ -1,8 +1,10 @@
 
 from django.shortcuts import render
 from animais.forms import CadastroAnimalForm
+from animais.models import CadastroAnimal
 
 def cadastro_animal(request):
+  cadastros = CadastroAnimal.objects.all()
   sucesso = False   
 
    # Cria formulário
@@ -14,7 +16,8 @@ def cadastro_animal(request):
       form.save()
   contexto = {
       'form':form,
-      'sucesso': sucesso
+      'sucesso': sucesso,
+      'cadastros': cadastros
     }
   
   # Chama Template
