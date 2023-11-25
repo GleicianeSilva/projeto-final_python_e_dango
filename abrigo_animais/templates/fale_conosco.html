@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block principal %}
+
+<div class="container justify-content-center">
+
+  <h1 class="titulo__descricao">Entre em Contato com o Abrigo de Animais</h1><br>
+
+  <p class="texto__descricao"><strong>Fale Conosco!</strong></p>
+
+  <div class="texto__descricao">
+      <p>Estamos localizado na <strong>Av. Luiz de Brito, 001, Matriz, São Paulo-SP, 00000-00</strong></p>
+      <p><strong>Contato:</strong> (00) 99999-9999</p>
+      <p><strong>E-mail:</strong> email@abrigodeanimais.com.br</p><br><br>
+
+      <form action="mailto:contato@amorepatasabrigo.com" method="post" enctype="text/plain">
+      
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+  
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea><br><br>
+  
+        <div class="card_botao">
+          <a href="" class="botao_cadastro">Enviar Mensagem</a>
+        </div>
+  
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+

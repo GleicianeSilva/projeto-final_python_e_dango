@@ -1,0 +1,179 @@
+{% extends 'index.html' %}
+{% block content %}
+
+< class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <class="container">
+
+  <main class="main">
+
+    {% block principal %}
+    
+    <h1 class="titulo__descricao"><strong>Sejam bem vindos ao Abrigo de Animais</strong></h1>
+    
+    <div id="carousel_de_imagens" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="5" aria-label="Slide 6"></button>
+      </div>
+      <div class="carousel-inner" >
+        <div class="carousel-item active">
+          <img src="../static/imgs/Cachorro_Gato.png" class="mx-auto d-block" alt="Cachorro e Gato">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/imgs/Cachorro_Gato_2.png" class="mx-auto d-block" alt="Cachorro e Gato">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/imgs/Cachorro_Poodle.png" class="mx-auto d-block" alt="Cachorro">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/imgs/Cachorro.png" class="mx-auto d-block" alt="Cachorro">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/imgs/Gato.png" class="mx-auto d-block" alt="Gato">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/imgs/Gato_2.png" class="mx-auto d-block" alt="Gato">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel_de_imagens" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="carousel_de_imagens" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+
+    <p class="texto__descricao">
+      Animais são pacotinhos de amor embrulhados em pelos! Essas fofurinhas podem trazer ainda mas alegria ao seu coração!
+    </p>
+   
+    <h2 class="topicos"><strong>Adote um animal!</strong></h2>
+    {% for animal in animais %}
+    <div class="card_conteudo"> 
+      <div class="card">      
+        <img src="../static/imgs/Akita.png" alt="Cachorro Akita">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Akita</strong></h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animais.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+        </div>
+      </div>
+      <div class="card">  
+        <img src="../static/imgs/Angorá turco.png" alt="Gato Angorá Turco">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Angorá Turco</strong></h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../static/imgs/Chihuahua.png" alt="Cachorro Chihuahua">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Chihuahua</strong></h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>   
+        </div>
+      </div>
+      <div class="card">  
+        <img src="../static/imgs/Siamês.png" alt="Gato Siamês">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Siamês</strong></h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../static/imgs/Poodle.png" alt="Cachorro Poodle">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Poodle</strong></h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../static/imgs/Gato siberiano.png" alt="Gato Siberiano">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Siberiano</strong></h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../static/imgs/Yorkshire Terrier.png" alt=" Cachorro Yorkshire Terrier">
+        <div class="card_informacao">
+          <h5 class="card-title"><strong>Yorkshire Terrie</strong>r</h5>
+        </div>
+        <div class="card_botao">
+          <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+        </div>
+      </div>
+    <div class="card">
+      <img src="../static/imgs/Gato europeu.png" alt="Gato Europeu">
+      <div class="card_informacao">
+        <h5 class="card-title"><strong>Gato Europeu</strong></h5>
+      </div>
+      <div class="card_botao">
+        <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+      </div>
+    </div>
+    <div class="card"> 
+      <img src="../static/imgs/Shih Tzu.png" alt="Cachorro Shih Tzu">
+      <div class="card_informacao">
+        <h5 class="card-title"><strong>Shih Tzu</strong></h5>
+      </div>
+      <div class="card_botao">
+        <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+      </div>
+  </div>
+  <div class="card">
+    <img src="../static/imgs/Bobtail americano.png" alt="Gato Bobtail Americano">
+    <div class="card_informacao">
+      <h5 class="card-title"><strong>Bobtail Americano</strong></h5>
+    </div>
+    <div class="card_botao">
+      <a href="{% url 'Card_de_Animais' %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+    </div>
+</div>
+<div class="card"> 
+  <img src="../static/imgs/Maltês.png" alt="Cachorro Maltês">
+  <div class="card_informacao">
+    <h5 class="card-title"><strong>Maltês</strong></h5>
+  </div>
+  <div class="card_botao">
+    <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+  </div>
+</div>
+<div class="card"> 
+  <img src="../static/imgs/Mau egipcio.png" alt="Gato Mau Egipcio">
+  <div class="card_informacao">
+    <h5 class="card-title"><strong>Mau Egipcio</strong></h5>
+  </div>
+  <div class="card_botao">
+    <a href="{% url 'Card_de_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais {{ animal.nome }}</strong></a>
+  </div>
+</div>
+</div>
+{% endfor %}
+<br>
+<div class="card_botao">
+  <a href="{% url 'Cadastro_Animal' %}" class="botao_cadastro"><strong>Cadastrar Animal</strong></a>
+</div>
+{% endblock %}
+</main>
+</div>
+{% endblock %}
+
+

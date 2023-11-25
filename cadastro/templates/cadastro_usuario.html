@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% load bootstrap5 %}
+
+{% block principal %}
+
+<h1 class="form_cadastro"><strong>Cadastro de Usuário</strong></h1>
+
+<form class="form_animal" action="" method="POST" id="form" enctype="multipart/form-data">
+ 
+  {% csrf_token %}
+  {% bootstrap_form form %}
+
+  <div class="card_botao">
+    <a href="{% url 'Abrigo_de_Animais' %}" type="submit" class="botao_cadastro">Inserir usuário</a>
+  </div>
+
+</form>
+
+{% endblock %}
