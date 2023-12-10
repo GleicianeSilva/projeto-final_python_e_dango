@@ -1,20 +1,29 @@
-{% extends "index.html" %}
-{% extends "pagina_incial.html" %}
+{% extends 'index.html' %}
 {% load static %}
 
 {% block principal %}
-    <div class="container div-body">
-        <div class="row justify-content-center">
-            <div class="col-4 ">
-                <img src="{{ card.foto.url }}" class="w-100" alt="...">
+<div class="container">
+    <p class="texto__titulo"><strong>Informações detalhadas sobre {{ card.nome }}</strong></p>
+    <div class="row d-flex align-items-center justify-content-center mx-3">
+            <div class="col-4 rounded">
+                <img src="{{ card.foto.url }}" class="rounded-5 w-100" alt="...">
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <strong>Nome:</strong> {{ card.nome }}<br>
-                <strong>Espécie:</strong> {{ card.especie }}<br>
+                <strong>Espécie:</strong> {{ card.espécie }}<br>
                 <strong>Idade:</strong> {{ card.idade }} anos<br>
                 <strong>Raça:</strong> {{ card.raça }}<br>
                 <strong>Histórico de Saúde:</strong> {{ card.histórico_de_saúde }}<br>
             </div>
-        </div>
+        
     </div>
+
+    <br>
+
+    <div class="card_botao">
+        <a href="{% url 'Adoção' %}" class="botao_saiba_mais">Requisitar Adoção</a>
+        <a href="{% url 'Abrigo_de_Animais' %}" class="botao_cadastro">Voltar para Página Inicial</a>
+    </div>
+</div>
+
 {% endblock %}

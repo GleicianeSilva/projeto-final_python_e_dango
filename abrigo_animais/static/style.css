@@ -1,7 +1,8 @@
 
 body{
     background-color: #313131;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,9 +15,10 @@ body{
     width: 100%;
     max-width: 700px;
     box-sizing: border-box;
-    margin: 0 auto;
+    margin-top: 100px;
+    position: relative;
     padding: 0 20px 0px 20px;
-}
+} 
 
 .nav-item{
     font-family: 'Damion', cursive;
@@ -34,9 +36,20 @@ body{
     justify-content: center;
 }
 
+.logo{
+    align-items: center;
+    justify-content: center;
+}
+
 img{
     width: 500px;
     height: 300px;
+}
+
+.img_logo{
+    
+    width: 10em;
+    height: 10em;  
 }
 
 .carousel-control-prev, .carousel-control-next{
@@ -65,41 +78,72 @@ img{
 
 }
 
-.titulo__descricao{
+.texto__titulo{
     font-family: 'Damion', cursive;
-    font-size:20px;
+    font-size:50px;
     font-weight: 400;
-    margin: 16px 0;
+    margin: 22px 0; 
     text-align: center;
-    justify-content: center;
 }
 
+.texto__descricao{
+    font-family: 'Damion', cursive;
+    font-size:20px;
+    margin: 22px; 
+    text-align: center;
+}
+
+.texto__descricao_2{
+    font-family: 'Damion', cursive;
+    font-size: 15px;
+    margin: 22px; 
+    text-align: center;
+}
+.recuo{
+    text-indent: 4em;
+}
 
 .topicos{
     font-family: 'Damion', cursive;
     text-align: center;  
 }
 
-.card_conteudo, .card_informacao{
+.card{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    padding: 10px;
 }
 
-.card img{
-    width: 300px;
+.card_foto img{
+    display: flex;
+    width: 280px;
     height: 200px;
-    flex: 1 1 150px;
-    margin: 5px;
+
+}
+
+.card_foto_2 img{
+    width: 200px;
+    height: 190px;
+    display: flex;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 150px; 
+    margin: 0 auto;
+
+}
+
+.card_informacao{
+    padding: 6px;
+    margin: 0 auto;
 }
 
 .card_botao{
     display: flex;
-    align-items: center;
     justify-content: center; 
-
 }
 
+a .botao_cadastro{
+    margin: 0 15px;
+}
 .botao_cadastro, .botao_saiba_mais{
     display: flex;
     align-items: center;
@@ -113,7 +157,6 @@ img{
     margin-bottom: 1em;
 }
 
-
 .icone {
     width: 24px;
     border-radius: 50%;
@@ -126,30 +169,29 @@ img{
 }
 
 .footer {
-    width: 100%;
-    height: 100%;
-    min-width: 400px;
-    max-height: 28px;
     background-color: var(--cor-destaque);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    position:relative;
+    position: fixed;
     bottom: 0;
+    left: 0;
 }
 
 .footer__texto{
     font-size: 14px;
     font-weight: 400;
     color: #fcfcfc;
-    display: flex;
-    align-items: center;
+    margin-top: 10px;
 }
 
 .footer__texto img{
     height: 22px;
+}
+
+.icons i{
+    font-size: 20px;
+}
+
+.icons a{
+    color: #fcfcfc;
 }
 
 .form_cadastro{
@@ -161,3 +203,11 @@ img{
 .form_animal{
     padding: 50px; 
 }
+
+nav img{
+    width: 70px; 
+    height: 40px;
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+

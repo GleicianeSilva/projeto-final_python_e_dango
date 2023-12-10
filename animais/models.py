@@ -32,7 +32,7 @@ class CadastroAnimal(models.Model):
     foto=models.ImageField(upload_to="uploads/", blank=True, null=True)
 
     def __str__(self):
-        return f"{self.nome} [{self.espécie}] [{self.idade}] [{self.raça}] [{self.histórico_de_saúde}] [{self.foto}]"
+        return f"[{self.nome}] [{self.espécie}] [{self.idade}] [{self.raça}] [{self.histórico_de_saúde}] [{self.foto}]"
     
     # Associa formulario ao modelo
     class Meta:

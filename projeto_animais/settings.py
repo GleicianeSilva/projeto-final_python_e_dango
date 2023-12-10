@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "pt-br"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Sao_Paulo"
 
 USE_I18N = True
 
@@ -139,6 +139,6 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = 'base:Amor&Patas'
-LOGOUT_REDIRECT_URL = 'login'
-LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'Abrigo_de_Animais'
+LOGOUT_REDIRECT_URL = 'Login'
+LOGIN_URL = 'Login'

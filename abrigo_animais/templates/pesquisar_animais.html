@@ -1,32 +1,34 @@
 {% extends "index.html" %}
-{% load static %}
 
 {% block principal %}
-  {% if pesquisa %}
-    <h1>Pesquisar por {{ pesquisa }}</h1>
-    <br>
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for animal in animais %}
-          <div class="col">
-              <div class="card h-100 card-all">
-                <img width="100%" src="{{ animal.foto.url }}" class="card-img-top custom-image" alt="...">
-                <div class="card-body card-details">
-                  <h5 class="card-title">{{ animal.nome }}</h5>
-                  <p class="card-text">{{ animal.especie }}</p>
-                </div>
-                <div class="card-footer card-rp">
-                  <small class="text-body-secondary">
-                    <a href="{% url 'card_animal animal.id'%}" class="btn btn-primary">Visualizar {{ animal.nome }}</a>
-                  </small>
-                </div>
-              </div>
-            </div>
-        {% endfor %}
+
+{% if pesquisa %}
+<h1>Pesquisar por {{ pesquisa }}</h1>
+<br>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for animal in animais %}
+    <div class="col-4">
+      <div class="card h-100 card-all">
+        <img src="{{ card.foto.url }}" class="w-100" alt="...">
+        <div class="card-body card-details">
+          <h5 href="{% url 'Card_Animais' animal.id %}" class="card-title">{{ animal.nome }}</h5>
+          <p href="{% url 'Card_Animais' animal.id %}" class="card-text">{{ animal.especie }}</p>
+        </div>
       </div>
+      {% empty %}
+      <div class="container justify-content-center">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h5 class="text-center">Não encontrado.</h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
   {% else %}
-    <h1>Nenhum resultado encontrado.</h1>
+  <h1>Nenhum animal encontrado.</h1>
   {% endif %}
 
-{% endblock %}
+  {% endblock %}

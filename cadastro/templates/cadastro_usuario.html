@@ -1,25 +1,34 @@
 {% extends "index.html" %}
+{% load static %}
 {% load bootstrap5 %}
 
 {% block principal %}
 
-<h1 class="form_cadastro"><strong>Cadastro de Usuário</strong></h1>
+<h1 class="form_cadastro"><strong>Cadastro do Usuário</strong></h1><br><br>
 
 {% if sucesso %}
-<div class="alert alert-success" role="alert">
-  <p>Cadastro enviado com sucesso.</p>
+<div class="alert alert-success col-md-9 mx-auto text-center mb-4" role="alert">
+  <h4 class="alert-heading">Cadastro do Usuário enviado com sucesso!</h4>
+  <hr>
 </div>
-{% endif %}
+<div class=" card_botao mt-4 mb-5 text-center">  
+  <a href="{% url 'Abrigo_de_Animais' %}" class="botao_cadastro">Voltar para Página Inicial</a>
+</div>
+  
+{% else %}
 
-<form class="form_animal" action="" method="POST" id="form" enctype="multipart/form-data">
+<form action="" method="POST" id="form" enctype="multipart/form-data">
  
   {% csrf_token %}
   {% bootstrap_form form %}
 
   <div class="card_botao">
-    <a href="{% url 'Abrigo_de_Animais' %}" type="submit" class="botao_cadastro">Inserir usuário</a>
+    <button type="submit" class="botao_cadastro">Inserir usuário</button>
+    <a href="{% url 'Abrigo_de_Animais' %}" class="botao_cadastro">Voltar para Página Inicial</a>
   </div>
 
 </form>
 
+{% endif %}
+<br><br><br>
 {% endblock %}

@@ -1,12 +1,21 @@
 {% extends "index.html" %}
+{% load static %}
 {% load bootstrap5 %}
+
 
 {% block principal %}
 
-<h1 class="form_cadastro"><strong>Cadastro de Animais</strong></h1>
+<h1 class="form_cadastro"><strong>Cadastro de Animais</strong></h1><br><br>
   
 {% if sucesso %}
-  <p class="alert alert-success"> Cadastro realizado com sucesso! </p>
+<div class="alert alert-success col-md-9 mx-auto text-center mb-4" role="alert">
+  <h4 class="alert-heading">Cadastro de Animal enviado com sucesso!</h4>
+  <hr>
+</div>
+<br><br>
+<div class=" card_botao">  
+  <a href="{% url 'Abrigo_de_Animais' %}" class="botao_cadastro">Voltar para Página Inicial</a>
+</div>
 {% else %}
 
 <form class="form_animal" action="" method="POST" id="form" enctype="multipart/form-data">
@@ -16,8 +25,9 @@
 
   <div class="card_botao">
     <button type="submit" class="botao_cadastro">Inserir animal</button>
+    <a href="{% url 'Abrigo_de_Animais' %}" class="botao_cadastro">Voltar para Página Inicial</a>
   </div>
-
+<br>
 </form>
 
 {% endif %}

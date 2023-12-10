@@ -1,17 +1,8 @@
 {% extends 'index.html' %}
-{% include "card_de_animais.html"}
-{% block content %}
 
-< class="container">
-  <div class="jumbotron jumbotron-fluid">
-    <class="container">
-
-  <main class="main">
-
-    {% block principal %}
-    
-    <h1 class="titulo__descricao"><strong>Sejam bem vindos ao Abrigo de Animais</strong></h1>
-    
+<main class="main">
+    {% block principal %}   
+      <h1 class="texto__titulo"><strong>Sejam bem vindos ao Abrigo de Animais</strong></h1>
     <div id="carousel_de_imagens" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -51,33 +42,52 @@
       </button>
     </div>
 
-    <p class="titulo__descricao">
+    <p class="texto__descricao">
       Animais são pacotinhos de amor embrulhados em pelos! Essas fofurinhas podem trazer ainda mas alegria ao seu coração!
     </p>
    
-    <h2 class="topicos"><strong>Adote um animal!</strong></h2>
-    {% for animal in animais %}
-    <div class="card_conteudo"> 
-      <div class="card">      
-        <img src="{{animal.foto.url}}" alt="">
-        <div class="card_informacao">
-          <h5 class="card-title"><strong>{{ animal.nome }}</strong></h5>
-        </div>
-        <div class="card_botao">
-          <a href="" class="botao_saiba_mais"><strong>Saiba Mais</strong></a>
+    <h2 class="topicos"><strong>Adote um animal!</strong></h2><br>
+      <div class="container">
+        <div class="row">
+          {% for animal in animais %}
+          <div class="mb-2 mt-2 col-lg-3">
+            <div class="card">
+              <div class="card_foto">
+                <img src="{{ animal.foto.url }}" alt="Foto">
+              </div>      
+              <div class="card_informacao">
+                <h5 class="card-title"><strong>{{ animal.nome }}</strong></h5>
+              </div>
+              <div class="card_botao">
+                <a href="{% url 'Card_Animais' animal.id %}" class="botao_saiba_mais"><strong>Saiba Mais</strong></a>
+              </div>
+            </div>
+            <br>
+          </div>
+      {% empty %}
+      <div class="container justify-content-center">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h5 class="text-center">Nenhum animal cadastrado.</h5>
+          </div>
         </div>
       </div>
-      
-</div>
-</div>
-{% endfor %}
-<br>
-<div class="card_botao">
-  <a href="{% url 'cadastro_animal' %}" class="botao_cadastro"><strong>Cadastrar Animal</strong></a>
+      {% endfor %}
+      <div class="card_botao">
+        {% if user.is_authenticated and user.solicitacaoadocao_set.all %}
+          <a class="nav-link active a-white" aria-current="page" href="{% url 'status' solicitacao_id=user.solicitacaoadocao_set.first.id %}">Situação de adoção</a>
+        {% endif %}
+        {% if user.is_authenticated and user.is_staff %}
+          <a href="{% url 'animais:Cadastro_Animal' %}" class="botao_cadastro"><strong>Cadastrar Animal</strong></a>
+          <a href="{% url 'usuarios:Cadastro_Usuario' %}" class="botao_cadastro"><strong>Cadastrar Usuário</strong></a>
+        {% endif %}
+      </div>
+    </div>
+      </div>
 </div>
 {% endblock %}
 </main>
-</div>
-{% endblock %}
+
+
 
 

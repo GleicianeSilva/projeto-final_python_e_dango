@@ -1,10 +1,13 @@
 
 from django.shortcuts import render
 from animais.forms import CadastroAnimalForm
-from animais.models import CadastroAnimal
+from django.contrib.auth.decorators import user_passes_test
 
+def is_admin(user):
+    return user.is_authenticated and user.is_staff
+
+@user_passes_test(is_admin)
 def cadastro_animal(request):
-  cadastros = CadastroAnimal.objects.all()
   sucesso = False   
 
    # Cria formulário
@@ -16,8 +19,7 @@ def cadastro_animal(request):
       form.save()
   contexto = {
       'form':form,
-      'sucesso': sucesso,
-      'cadastros': cadastros
+      'sucesso': sucesso
     }
   
   # Chama Template
