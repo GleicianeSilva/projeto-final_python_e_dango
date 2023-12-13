@@ -62,15 +62,13 @@
             <a class="nav-link" href="{% url 'Fale_Conosco' %}">Fale Conosco</a>
           </li>
         </ul>
-
         <div class="col-md-3 offset-md-4 search-form">
-          <form class="{% url 'Pesquisar_Animais' %} method=POST d-flex">
+          <form action="{% url 'Pesquisar_Animais' %}" method="get" class="d-flex">
             {% csrf_token %}
-            <input class="form-control me-2" name="pesquisa" type="text" placeholder="Buscar" aria-label="Search">
+            <input class="form-control me-2" name="q" type="search" placeholder="Buscar" aria-label="Search">
             <button class="botao_pesquisar" type="submit"><strong>Pesquisar</strong></button>
           </form>
-        </div>
-
+          </div>
 
           {% if request.user.is_authenticated %}
           <div class="navbar-nav ms-auto">
@@ -88,8 +86,9 @@
   </nav>
 </header>
 
+<br><br><br>
+
 <body>
-  <br><br><br>
   {% block principal %}
   {% endblock %}
 

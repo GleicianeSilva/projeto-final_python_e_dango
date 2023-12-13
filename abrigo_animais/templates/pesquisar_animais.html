@@ -1,19 +1,22 @@
 {% extends "index.html" %}
 
-{% block principal %}
-
-{% if pesquisa %}
-<h1>Pesquisar por {{ pesquisa }}</h1>
-<br>
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for animal in animais %}
-    <div class="col-4">
-      <div class="card h-100 card-all">
-        <img src="{{ card.foto.url }}" class="w-100" alt="...">
-        <div class="card-body card-details">
-          <h5 href="{% url 'Card_Animais' animal.id %}" class="card-title">{{ animal.nome }}</h5>
-          <p href="{% url 'Card_Animais' animal.id %}" class="card-text">{{ animal.especie }}</p>
+<main class="main">
+  {% block principal %}
+  <br><br><br>
+  <h1 class="text-center">Resultado da busca</h1><br>
+  {% if has_results %}
+  <div class="container">
+    <div class="row justify-content-center">
+      {% for animal in filter.qs %}
+      <div class="mb-2 mt-2 col-lg-3">
+        <div class="card align-items-center">
+          <div class="card_foto">
+            <img src="{{ animal.foto.url }}" alt="...">
+          </div>
+          <div class="card_informacao text-center">
+            <h5 href="{% url 'Card_Animais' animal.id %}" class="card-title">{{ animal.nome }}</h5>
+            <p href="{% url 'Card_Animais' animal.id %}" class="card-text">{{ animal.espécie }}</p>
+          </div>
         </div>
       </div>
       {% empty %}
@@ -24,11 +27,17 @@
           </div>
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
+  {% endfor %}
+
   {% else %}
   <h1>Nenhum animal encontrado.</h1>
   {% endif %}
 
+
   {% endblock %}
+
+
+
+</main>

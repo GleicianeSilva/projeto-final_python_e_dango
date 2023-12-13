@@ -4,6 +4,7 @@ from abrigo_animais.forms import PedidoAdocaoForm, FaleConoscoForm
 from animais.models import CadastroAnimal
 from cadastro.models import CadastroUsuario
 from abrigo_animais.models import PedidoAdocao
+from abrigo_animais.filters import AnimalFilter
 
 
 def inicio(request):
@@ -28,17 +29,18 @@ def contribuinte(request):
     return render(request, "contribuinte.html", {'cadastro': contribuinte})
 
 def pesquisar_animais(request):
-  if request.method == "POST":
-    pesquisa = request.POST['pesquisa']
-    nome = CadastroAnimal.objects.filter(nome__nome__contains=pesquisa)
-    espécie = CadastroAnimal.objects.filter(espécie__espécie__contains=pesquisa)
-    raça = CadastroAnimal.objects.filter(raça__raça__contains=pesquisa)
-    idade = CadastroAnimal.objects.filter(idade__idade__contains=pesquisa)
 
-    animais = nome | espécie | raça | idade
-    return render(request, 'pesquisar_animais.html', {'pesquisa': pesquisa, 'animais': animais})
-  else:
-    return render(request,'pesquisar_animais.html')
+    query = request.GET.get('q')
+    has_results = False
+    animal_filter = None
+
+    if query:
+        animal_filter = AnimalFilter(
+            data = {'search': query}, queryset=CadastroAnimal.objects.all()
+        )
+        has_results = animal_filter.qs.exists()
+    return render(request,'pesquisar_animais.html', {'filter':animal_filter, 'has_results':has_results})
+
   
 @login_required
 def pedido_adocao(request):

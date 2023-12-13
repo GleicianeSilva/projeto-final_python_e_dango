@@ -2,8 +2,8 @@
 
 <main class="main">
     {% block principal %}   
-      <h1 class="texto__titulo"><strong>Sejam bem vindos ao Abrigo de Animais</strong></h1>
-    <div id="carousel_de_imagens" class="carousel slide" data-bs-ride="carousel">
+      <h1 class="texto__titulo"><strong>Sejam bem vindos ao Abrigo de Animais</strong></h1><br>
+    <div id="carousel_de_imagens" class="carousel slide align-items-center" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carousel_de_imagens" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -14,22 +14,22 @@
       </div>
       <div class="carousel-inner" >
         <div class="carousel-item active">
-          <img src="../static/imgs/Cachorro_Gato.png" class="mx-auto d-block" alt="Cachorro e Gato">
+          <img src="../static/imgs/Cachorro_Gato.png" class="mx-auto d-flex" alt="Cachorro e Gato">
         </div>
         <div class="carousel-item">
-          <img src="../static/imgs/Cachorro_Gato_2.png" class="mx-auto d-block" alt="Cachorro e Gato">
+          <img src="../static/imgs/Cachorro_Gato_2.png" class="mx-auto d-flex" alt="Cachorro e Gato">
         </div>
         <div class="carousel-item">
-          <img src="../static/imgs/Cachorro_Poodle.png" class="mx-auto d-block" alt="Cachorro">
+          <img src="../static/imgs/Cachorro_Poodle.png" class="mx-auto d-flex" alt="Cachorro">
         </div>
         <div class="carousel-item">
-          <img src="../static/imgs/Cachorro.png" class="mx-auto d-block" alt="Cachorro">
+          <img src="../static/imgs/Cachorro.png" class="mx-auto d-flex" alt="Cachorro">
         </div>
         <div class="carousel-item">
-          <img src="../static/imgs/Gato.png" class="mx-auto d-block" alt="Gato">
+          <img src="../static/imgs/Gato.png" class="mx-auto d-flex" alt="Gato">
         </div>
         <div class="carousel-item">
-          <img src="../static/imgs/Gato_2.png" class="mx-auto d-block" alt="Gato">
+          <img src="../static/imgs/Gato_2.png" class="mx-auto d-flex" alt="Gato">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carousel_de_imagens" data-bs-slide="prev">
@@ -48,10 +48,10 @@
    
     <h2 class="topicos"><strong>Adote um animal!</strong></h2><br>
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           {% for animal in animais %}
           <div class="mb-2 mt-2 col-lg-3">
-            <div class="card">
+            <div class="card align-items-center">
               <div class="card_foto">
                 <img src="{{ animal.foto.url }}" alt="Foto">
               </div>      
