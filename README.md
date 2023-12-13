@@ -9,6 +9,9 @@
 - 👷🏻‍♀Projeto Final do Bootcamp Back-End Python e Django - WoMakersCode ®.
 
 - ### Projeto - Abrigo de Animais
+
+ ![image](https://github.com/GleicianeSilva/projeto-final_python_e_dango/assets/71572039/8a62c259-7543-40c9-b356-411f8e158237)
+
   
 - ([Para conhece-lo, acesse o site: ](http://projetofinalpythonedjango.pythonanywhere.com/)http://projetofinalpythonedjango.pythonanywhere.com/)
   
