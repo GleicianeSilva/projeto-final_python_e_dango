@@ -36,7 +36,10 @@
 
 <header>
   <nav class="navbar col-12 fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <img src="{% static 'imgs/Cachorro_e_Gato_home.png' %}" alt="logo">
+    <a class="nav-link active" aria-current="page" href="{% url 'Abrigo_de_Animais' %}">
+      <img src="{% static 'imgs/Cachorro_e_Gato_home.png' %}" alt="logo">
+    </a>
+    
     <div class="container-fluid" col-11 m-auto>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,14 +49,14 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'Abrigo_de_Animais' %}">Abrigo de Animais</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'Contribuinte' %}">Contribuites</a>
             {% if user.is_authenticated and user.pedidoadocao_set.all %}
             <a class="nav-link active a-white" aria-current="page"
               href="{% url 'Status' pedido_id=user.pedidoadocao_set.first.id %}">Resultado do pedido de adoção</a>
             {% endif %}
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Contribuinte' %}">Contribuites</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'Sobre' %}">Quem Somos</a>

@@ -62,9 +62,9 @@ def pedido_adocao(request):
     return render(request, 'pedido_adocao.html', {'form': form})
 
 @login_required
-def status(request, status_id):
+def status(request, pedido_id):
 
-    pedido = get_object_or_404(PedidoAdocao, pk=status_id)
+    pedido = get_object_or_404(PedidoAdocao, pk=pedido_id)
 
     if request.user.is_authenticated and pedido.user == request.user:
         return render(request, 'status.html', {'pedido': pedido})

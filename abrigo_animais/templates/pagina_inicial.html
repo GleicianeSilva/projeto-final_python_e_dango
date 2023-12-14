@@ -66,16 +66,17 @@
           </div>
       {% empty %}
       <div class="container justify-content-center">
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <h5 class="text-center">Nenhum animal cadastrado.</h5>
+        <div class="row">>
+          <div class=" col col-md-6 offset-md-3 mx-auto text-center">
+            <img class="img_sobre" src="../static/imgs/resultado.png" alt="Resultado">
+            <h2><strong></strong>Nenhum animal cadastrado.</h2>
           </div>
         </div>
       </div>
       {% endfor %}
       <div class="card_botao">
-        {% if user.is_authenticated and user.solicitacaoadocao_set.all %}
-          <a class="nav-link active a-white" aria-current="page" href="{% url 'status' solicitacao_id=user.solicitacaoadocao_set.first.id %}">Situação de adoção</a>
+        {% if user.is_authenticated and user.pedidoadocao_set.all %}
+          <a class="nav-link active a-white" aria-current="page" href="{% url 'Status' pedido_id=user.pedidoadocao_set.first.id %}">Situação de adoção</a>
         {% endif %}
         {% if user.is_authenticated and user.is_staff %}
           <a href="{% url 'animais:Cadastro_Animal' %}" class="botao_cadastro"><strong>Cadastrar Animal</strong></a>

@@ -21,7 +21,7 @@ class PedidoAdocao(models.Model):
     cuidados_com_animal=models.TextField()
 
     def __str__(self):
-        return f"[{self.nome}] [{self.email}] [{self.endereço}] [{self.contato}] [{self.solicitação}] [{self.cuidados_com_animal}]"
+        return f"[{self.nome}] [{self.email}] [{self.endereço}] [{self.contato}] [{self.solicitação}]"
     
     # Associa formulario ao modelo
     class Meta:
